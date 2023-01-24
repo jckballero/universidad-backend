@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class UniversidadBackendApplication {
 
@@ -27,11 +29,14 @@ public class UniversidadBackendApplication {
 	public CommandLineRunner runner() {
 		return args -> {
 			//Persona alumno = new Alumno(null, "Raul", "Perez", "111111111", new Direccion("Calle falsa", "123", "1623", "", "", "Junin"));
-			Direccion direccion = new Direccion("Calle falsa", "123", "1623", "", "", "Junin");
-			Persona alumno = new Alumno(null, "Raul", "Perez", "111111111", direccion);
+
+/*			Direccion direccion = new Direccion("Calle el mamey", "1234", "0652", "", "", "Veranillo");
+			Persona alumno = new Alumno(null, "Lorena", "Miranda", "12121212", direccion);
 
 			Persona save = servicio.save(alumno);
-			System.out.println(save.toString());
+			System.out.println(save.toString());*/
+			List<Persona> alumnos = (List<Persona>) servicio.findAll();
+			alumnos.forEach(System.out::println);
 		};
 	}
 
